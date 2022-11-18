@@ -6,11 +6,14 @@ import Dashboard from "./components/Dashboard";
 import RouteGuard from "./components/RouteGuard";
 import Navbar from "./components/Menu";
 import Companies from "./components/Companies";
+import Nav from "./components/Nav";
+import Footer from "./components/Footer";
 
 function App() {
   return (
     <BrowserRouter>
       <Navbar />
+      <Nav />
       <Routes>
         <Route path="/login" exact element={<Auth />} />
         <Route
@@ -39,6 +42,7 @@ function App() {
         />
         <Route path="*" element={<Navigate to="/" />} />
       </Routes>
+      <Footer />
     </BrowserRouter>
   );
 }

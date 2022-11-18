@@ -1,7 +1,9 @@
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 // import { Navigation } from "react-router-dom";
 import "./Auth.css";
 export default function Auth() {
+  const Navigation = useNavigate();
   const [email, setEmail] = useState(null);
   const [password, setPassword] = useState(null);
   const [errorMessages, setErrorMessages] = useState({});
@@ -33,8 +35,7 @@ export default function Auth() {
 
     if (data && data.token) {
       localStorage.setItem("token", data.token);
-      alert("Login successfully");
-      window.location.href = "/dashboard";
+      Navigation("/dashboard");
     } else {
       alert("Invalid Username and password");
     }
